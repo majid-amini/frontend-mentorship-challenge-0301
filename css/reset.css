@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+
+html {
+  font-family: 'Roboto',sans-serif;
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+/*# sourceMappingURL=reset.css.map */

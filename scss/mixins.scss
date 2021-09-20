@@ -1,0 +1,28 @@
+@mixin flexBox ($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin size ($width, $height, $padding, $margin) {
+    width: $width;
+    height: $height;
+    padding: $padding;
+    margin: $margin;
+}
+@mixin  padding ($padding, $margin) {
+    padding: $padding;
+    margin: $margin;
+}
+@mixin font ($size, $weight) {
+    font-size: $size;
+    font-weight: $weight;
+}
+@mixin border ($border, $radius) {
+    border: $border;
+    border-radius: $radius;
+}
+@mixin color ($color, $bgColor){
+    color: $color;
+    background-color: $bgColor;
+}

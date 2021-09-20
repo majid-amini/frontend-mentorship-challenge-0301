@@ -1,0 +1,151 @@
+@import 'reset.scss';
+@import 'variables.scss';
+@import 'mixins.scss';
+
+body {
+    background: url(../image/wallpaper2you_216110.jpg)no-repeat bottom center;
+    background-size: cover;
+    height: 100vh;
+    @include flexBox (column, center, center);
+}
+
+::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+ul {
+    list-style-type: none;
+}
+h1 {
+    @include font(3rem, 500);
+    color: $whiteColor;
+    text-align: center;
+    text-shadow: 1px 1px 2px $blackColor;
+}
+//task-manager
+#task-manager {
+    width: 50rem;
+    max-height: 46rem;
+    overflow: auto;
+    background-color: $lightBlueColor;
+    @include border (1px solid $blackColor, 1rem);
+    @include padding (1rem, 1rem);
+}
+
+
+.form-group {
+   @include padding (1rem, 0.5rem);
+}
+.text {
+    width: 35rem;
+    border: none;
+    outline: none;
+}
+.textEdit {
+    width: 100%;
+    @include border (none, 0.5rem);
+    outline: none;
+    transition: all ease-in-out 0.4s;
+    margin-left: 0.5rem;
+    text-decoration: none;
+}
+.textEdit:focus {
+    text-shadow: 1px 1px 1px #ccc;
+}
+
+.form-group input,.form-group button {
+    @include padding (1.5rem, 0.5rem);
+    @include font (1.5rem, 300);
+    @include border (none, 0.5rem);
+    outline: none;
+    transition: all ease-in-out 0.4s;
+}
+.form-group button {
+    background-color: $greenColor;
+    cursor: pointer;
+}
+.form-group input:focus {
+    box-shadow: 1px 1px 2px $blackColor;
+}
+.form-group button:hover {
+    @include color ($whiteColor, rgba($greenColor, 0.8));
+}
+.task-list-item {
+    @include flexBox (row, space-between, center);
+    @include padding (0.3rem 0,0.3rem 0);
+}
+.list-item-title {
+    width: 30rem;
+    @include padding (1.5rem 0.5rem,0.5rem);
+    @include font (1.5rem, 300);
+    @include border (none, 0.5rem);
+    background-color: $whiteColor;
+}
+ .inputValue {
+    margin-left: 0.5rem;
+    @include font(1.3rem, 300);
+}
+.list-item-buttons button {
+    @include padding (1.5rem, 0.5rem);
+    @include font (1.5rem, 300);
+    @include border (none, 0.5rem);
+    outline: none;
+    transition: all ease-in-out 0.3s;
+}
+.edit {
+    background-color: $mediumBlueColor;
+    cursor: pointer;
+}
+.delete {
+    background-color: $pinkColor;
+    cursor: pointer;
+}
+
+.edit:hover,.delete:hover {
+    color: $whiteColor;
+    text-shadow: 1px 1px 1px $blackColor;
+}
+
+//end of task-manager
+
+
+
+@media screen and (max-width:$iphonex) {
+    h1 {
+        font-size: 2rem;
+    }
+    #task-manager {
+        width: 30rem;
+    }
+
+    .form-group {
+    @include flexBox (row, space-around, center);
+
+                & input {
+                    width: 18rem;
+                }
+    }
+    
+    .task-list-item {
+        display: flex;
+        flex-direction:column;
+        align-items:flex-end;
+        border: 1px solid #ccc;
+
+                    .list-item-title {
+                        width:26rem;
+                        }
+                        .list-item-buttons button {
+                        padding:1rem;
+                        }
+                    }
+      
+}
