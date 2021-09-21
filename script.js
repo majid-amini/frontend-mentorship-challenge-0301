@@ -141,14 +141,11 @@ function removeAndEditTask(event) {
  
  if (event.target.tagName === 'BUTTON'){
     const button = event.target;
-    
     const li = button.parentNode.parentNode.parentNode;
-    const ul = li.parentNode;
     if (button.textContent === 'delete'){
-       ul.removeChild(li);
-       localStorage.removeItem('task');
-       console.log(removeTaskFromLocalStorage(event));
-       
+      removeTaskFromLocalStorage(li);
+      li.remove();
+      
     } else if (button.textContent === 'edit') {
      const span = taskListUl.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
      const input = document.createElement('input');
@@ -171,17 +168,21 @@ function removeAndEditTask(event) {
     }//else if textContent = 'save'
  }//if event.target.tagName
 };//remove and edittask func
+
+
+
+
 function removeTaskFromLocalStorage (taskItem) {
+  let tasks;
   if (localStorage.getItem("tasks") === null ) {
     tasks = [];
   } else {
     tasks = JSON.parse(localStorage.getItem("tasks"));
-  }
-tasks.forEach(function(task, index){
-    if(taskItem.textContent === task){
-        tasks.splice(index, 1);
-    }
-});
-localStorage.setItem('tasks', JSON.stringify(tasks));
+    
+  };
+  
+    const tasksIndex = taskItem.children[0].children[0].innerText;
+    tasks.splice(tasks.indexOf(tasksIndex), 1);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }//removeTaskFromLocalStorage function
 
