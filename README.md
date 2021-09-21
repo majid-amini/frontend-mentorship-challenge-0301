@@ -1,5 +1,5 @@
 
-## this ia a complete todo App with js 
+## this is a complete todo App with js 
 
 
 
